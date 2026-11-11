@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MattMadeApps | We Make iOS Games</title>
+<meta name="description" content="MattMadeApps creates fun, original iOS games and apps.">
+
+<style>
+:root {
+  --navy: #07152f;
+  --teal: #08c4c9;
+  --orange: #ff850d;
+  --purple: #9b5de5;
+  --bg: #fbfaf7;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--navy);
+  font-family: Arial, sans-serif;
+}
+
+a { text-decoration: none; color: inherit; }
+
+header {
+  max-width: 1100px;
+  margin: auto;
+  padding: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+}
+
+.logo span:nth-child(2) { color: var(--orange); }
+.logo span:nth-child(3) { color: var(--purple); }
+
+nav {
+  display: flex;
+  gap: 25px;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+nav a:hover { color: var(--teal); }
+
+nav .button {
+  background: var(--navy);
+  color: white;
+  padding: 12px 18px;
+  border-radius: 8px;
+}
+
+.hero {
+  max-width: 1100px;
+  margin: auto;
+  padding: 90px 25px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: #778397;
+}
+
+h1 {
+  font-size: clamp(55px, 8vw, 85px);
+  line-height: .98;
+  letter-spacing: -5px;
+  margin: 20px 0;
+}
+
+.gradient {
+  background: linear-gradient(90deg, var(--teal), var(--purple));
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  font-size: 18px;
+  color: #667085;
+  line-height: 1.7;
+  max-width: 430px;
+}
+
+.button {
+  display: inline-block;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.primary {
+  background: var(--orange);
+  color: var(--navy);
+  box-shadow: 0 4px 0 #d66c00;
+}
+
+.hero-art {
+  background: #08bec5;
+  border: 8px solid var(--navy);
+  border-radius: 35px;
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-art::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  height: 25%;
+  width: 100%;
+  background: var(--orange);
+}
+
+.console {
+  position: relative;
+  z-index: 1;
+  width: 190px;
+  height: 235px;
+  background: var(--teal);
+  border: 10px solid var(--navy);
+  border-radius: 24px;
+  transform: rotate(-7deg);
+  box-shadow: 12px 12px 0 #087c91;
+}
+
+.screen {
+  background: var(--navy);
+  margin: 18px 8px;
+  height: 115px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+}
+
+.eye {
+  width: 22px;
+  height: 35px;
+  background: white;
+  border-radius: 5px;
+}
+
+.mouth {
+  position: absolute;
+  top: 125px;
+  left: 72px;
+  width: 28px;
+  height: 13px;
+  background: var(--orange);
+}
+
+.dpad {
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  color: var(--purple);
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.controls {
+  position: absolute;
+  bottom: 27px;
+  right: 20px;
+  color: var(--navy);
+  font-size: 20px;
+}
+
+.plus {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  color: var(--orange);
+  font-size: 65px;
+  font-weight: bold;
+}
+
+.games {
+  background: #f0f3f6;
+  padding: 85px 25px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-bottom: 35px;
+}
+
+h2 {
+  font-size: 43px;
+  letter-spacing: -2px;
+  margin: 10px 0;
+}
+
+.purple { color: var(--purple); }
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.game {
+  background: white;
+  border: 1px solid #e3e7ed;
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform .2s;
+}
+
+.game:hover { transform: translateY(-6px); }
+
+.game-art {
+  height: 190px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 65px;
+  font-weight: bold;
+}
+
+.donny { background: var(--teal); color: var(--navy); }
+.moji { background: #ff9b30; color: white; }
+.dontzu { background: var(--navy); color: #f5d69c; }
+
+.game-content { padding: 23px; }
+
+.game-content small {
+  color: #8993a2;
+  font-size: 10px;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
+
+.game-content h3 {
+  font-size: 23px;
+  margin: 12px 0;
+}
+
+.game-content p {
+  color: #667085;
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 95px;
+}
+
+.game-link {
+  color: #078c9a;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.about {
+  max-width: 1100px;
+  margin: auto;
+  padding: 90px 25px;
+  display: flex;
+  align-items: center;
+  gap: 45px;
+}
+
+.about-icon {
+  width: 150px;
+  height: 150px;
+  flex-shrink: 0;
+  background: #dff7f5;
+  border: 8px solid var(--navy);
+  border-radius: 35px;
+  display: grid;
+  place-items: center;
+  font-size: 75px;
+}
+
+.about p {
+  max-width: 600px;
+  color: #667085;
+  line-height: 1.8;
+}
+
+footer {
+  border-top: 1px solid #e5e7eb;
+  padding: 30px 25px;
+  text-align: center;
+  color: #8993a2;
+  font-size: 13px;
+}
+
+@media(max-width: 750px) {
+  header { padding: 20px; }
+  nav { gap: 12px; }
+  nav a:first-child { display: none; }
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 60px 22px;
+  }
+  .hero p { margin: auto; }
+  .hero-art { min-height: 300px; margin-top: 20px; }
+  .section-heading { display: block; }
+  .game-grid { grid-template-columns: 1fr; }
+  .about { flex-direction: column; text-align: center; }
+  h2 { font-size: 35px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <a href="#" class="logo">
+    <span>Matt</span><span>Made</span><span>Apps</span>
+  </a>
+
+  <nav>
+    <a href="#games">Our Apps</a>
+    <a href="#about">About</a>
+    <a class="button" href="https://apps.apple.com/us/developer/matthew-james-shaw/id6804407072">
+      App Store ↗
+    </a>
+  </nav>
+</header>
+
+<main>
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">INDEPENDENT APP DEVELOPER</div>
+
+    <h1>
+      We make<br>
+      <span class="gradient">iOS games.</span>
+    </h1>
+
+    <p>
+      Welcome to MattMadeApps. We create original,
+      playful iPhone games and apps designed to
+      bring a little more fun to your day.
+    </p>
+
+    <a href="#games" class="button primary">
+      Explore our apps →
+    </a>
+  </div>
+
+  <div class="hero-art">
+    <div class="plus">+</div>
+    <div class="console">
+      <div class="screen">
+        <div class="eye"></div>
+        <div class="eye"></div>
+      </div>
+      <div class="mouth"></div>
+      <div class="dpad">+</div>
+      <div class="controls">▪ ▪</div>
+    </div>
+  </div>
+</section>
+
+<section class="games" id="games">
+  <div class="container">
+
+    <div class="section-heading">
+      <div>
+        <div class="eyebrow">WHAT WE MAKE</div>
+        <h2>Our <span class="purple">apps.</span></h2>
+      </div>
+      <p>Three apps. Plenty of personality.</p>
+    </div>
+
+    <div class="game-grid">
+
+      <article class="game">
+        <div class="game-art donny">D</div>
+        <div class="game-content">
+          <small>VIRTUAL PET</small>
+          <h3>DonnyGotchi</h3>
+          <p>
+            A tiny pixel pet with an ego the size
+            of the universe. Feed Donny, play games
+            and keep him entertained.
+          </p>
+          <a class="game-link"
+             href="https://apps.apple.com/us/app/donnygotchi/id6804407070"
+             target="_blank" rel="noopener">
+            View on App Store ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="game">
+        <div class="game-art moji">M</div>
+        <div class="game-content">
+          <small>PUZZLE GAME</small>
+          <h3>MojiPair</h3>
+          <p>
+            The Emoji Match Game. Find matching
+            pairs, beat the clock and collect
+            colourful stickers.
+          </p>
+          <a class="game-link"
+             href="https://apps.apple.com/us/app/mojipair-the-emoji-match-game/id6805233011"
+             target="_blank" rel="noopener">
+            View on App Store ↗
+          </a>
+        </div>
+      </article>
+
+      <article class="game">
+        <div class="game-art dontzu">DT</div>
+        <div class="game-content">
+          <small>QUOTE APP</small>
+          <h3>The Art of Don Tzu</h3>
+          <p>
+            Bold wisdom, one swipe away.
+            Discover quotes, save favourites
+            and share them with friends.
+          </p>
+          <a class="game-link"
+             href="https://apps.apple.com/us/app/the-art-of-don-tzu/id6805178995"
+             target="_blank" rel="noopener">
+            View on App Store ↗
+          </a>
+        </div>
+      </article>
+
+    </div>
+
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-icon">+</div>
+  <div>
+    <div class="eyebrow">ABOUT MATTMADEAPPS</div>
+    <h2>Made for the love of <span class="purple">play.</span></h2>
+    <p>
+      MattMadeApps is an independent app studio
+      creating original iOS experiences.
+      From quirky virtual pets to satisfying
+      puzzles, we make apps with personality.
+    </p>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong>MattMadeApps</strong>
+  <p>© <span id="year"></span> MattMadeApps. All rights reserved.</p>
+  <a href="https://apps.apple.com/us/developer/matthew-james-shaw/id6804407072">
+    Find us on the App Store ↗
+  </a>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+  new Date().getFullYear();
+</script>
+
+</body>
+</html>
