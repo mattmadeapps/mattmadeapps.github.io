@@ -1,336 +1,508 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MattMadeApps | We Make iOS Games</title>
-<meta name="description" content="MattMadeApps creates fun, original iOS games and apps.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10233b">
+<title>MattMadeApps — Games with personality</title>
+<meta name="description" content="Independent iOS games made with personality. Meet DonnyGotchi, MojiPair and The Art of Don Tzu.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --navy: #07152f;
-  --teal: #08c4c9;
-  --orange: #ff850d;
-  --purple: #9b5de5;
-  --bg: #fbfaf7;
+  --navy: #10233b;
+  --cream: #fff8e9;
+  --teal: #18c9c6;
+  --orange: #ff8b24;
+  --purple: #9b70e8;
+  --ink: #17243a;
+  --muted: #667286;
 }
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
 
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--navy);
-  font-family: Arial, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Nunito Sans', sans-serif;
 }
 
-a { text-decoration: none; color: inherit; }
+a { color: inherit; text-decoration: none; }
+
+.wrap {
+  width: min(1160px, calc(100% - 48px));
+  margin: auto;
+}
+
+/* NAVIGATION */
 
 header {
-  max-width: 1100px;
-  margin: auto;
-  padding: 25px;
+  height: 82px;
+  background: #fffdf7;
+  border-bottom: 2px solid var(--ink);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.nav {
+  height: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
 }
 
 .logo {
-  font-size: 25px;
-  font-weight: 900;
+  font: 700 31px 'Fredoka', sans-serif;
   letter-spacing: -1.5px;
 }
 
-.logo span:nth-child(2) { color: var(--orange); }
-.logo span:nth-child(3) { color: var(--purple); }
+.logo span { color: var(--orange); }
 
-nav {
+.navlinks {
   display: flex;
-  gap: 25px;
   align-items: center;
-  font-weight: bold;
+  gap: 28px;
   font-size: 14px;
+  font-weight: 900;
 }
 
-nav a:hover { color: var(--teal); }
+.navlinks a:hover { color: #078f93; }
 
-nav .button {
-  background: var(--navy);
-  color: white;
-  padding: 12px 18px;
-  border-radius: 8px;
+.nav-button {
+  background: var(--orange);
+  padding: 12px 17px;
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+  box-shadow: 3px 3px 0 var(--ink);
 }
+
+/* HERO */
 
 .hero {
-  max-width: 1100px;
-  margin: auto;
-  padding: 90px 25px;
+  background: var(--teal);
+  border-bottom: 3px solid var(--ink);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(#10233b20 1.5px, transparent 1.5px);
+  background-size: 20px 20px;
+}
+
+.hero-inner {
+  min-height: 620px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
   gap: 40px;
+  padding: 60px 0;
+  position: relative;
 }
 
-.eyebrow {
+.sticker {
+  display: inline-block;
+  background: var(--cream);
+  border: 2px solid var(--ink);
+  border-radius: 30px;
+  padding: 9px 15px;
   font-size: 11px;
-  letter-spacing: 3px;
-  font-weight: bold;
-  color: #778397;
+  font-weight: 900;
+  letter-spacing: 1px;
+  transform: rotate(-2deg);
+  box-shadow: 3px 3px 0 var(--ink);
 }
 
-h1 {
-  font-size: clamp(55px, 8vw, 85px);
-  line-height: .98;
-  letter-spacing: -5px;
-  margin: 20px 0;
+.hero h1 {
+  font: 700 clamp(65px, 8vw, 102px)/.9 'Fredoka', sans-serif;
+  letter-spacing: -4px;
+  margin: 28px 0;
+  color: var(--navy);
 }
 
-.gradient {
-  background: linear-gradient(90deg, var(--teal), var(--purple));
-  -webkit-background-clip: text;
-  color: transparent;
+.hero h1 span {
+  color: white;
+  text-shadow: 4px 4px 0 var(--navy);
 }
 
 .hero p {
   font-size: 18px;
-  color: #667085;
   line-height: 1.7;
-  max-width: 430px;
+  font-weight: 700;
+  max-width: 470px;
+}
+
+.actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 30px;
 }
 
 .button {
   display: inline-block;
-  padding: 15px 20px;
-  border-radius: 8px;
-  font-weight: bold;
-  margin-top: 15px;
+  padding: 14px 19px;
+  border: 2px solid var(--ink);
+  border-radius: 9px;
+  font-size: 14px;
+  font-weight: 900;
+  box-shadow: 4px 4px 0 var(--ink);
+  transition: .2s;
 }
 
-.primary {
-  background: var(--orange);
-  color: var(--navy);
-  box-shadow: 0 4px 0 #d66c00;
+.button:hover {
+  transform: translate(3px, 3px);
+  box-shadow: 1px 1px 0 var(--ink);
+}
+
+.button-dark {
+  background: var(--navy);
+  color: white;
+}
+
+.button-light {
+  background: var(--cream);
 }
 
 .hero-art {
-  background: #08bec5;
-  border: 8px solid var(--navy);
-  border-radius: 35px;
-  min-height: 350px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   position: relative;
-  overflow: hidden;
 }
 
-.hero-art::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  height: 25%;
+.hero-art img {
   width: 100%;
-  background: var(--orange);
-}
-
-.console {
-  position: relative;
-  z-index: 1;
-  width: 190px;
-  height: 235px;
-  background: var(--teal);
-  border: 10px solid var(--navy);
-  border-radius: 24px;
-  transform: rotate(-7deg);
-  box-shadow: 12px 12px 0 #087c91;
-}
-
-.screen {
-  background: var(--navy);
-  margin: 18px 8px;
-  height: 115px;
-  border-radius: 12px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 25px;
-}
-
-.eye {
-  width: 22px;
-  height: 35px;
+  max-width: 440px;
+  border: 3px solid var(--ink);
+  border-radius: 25px;
   background: white;
-  border-radius: 5px;
+  box-shadow: 12px 12px 0 var(--navy);
+  transform: rotate(2deg);
 }
 
-.mouth {
+.hero-bubble {
   position: absolute;
-  top: 125px;
-  left: 72px;
-  width: 28px;
-  height: 13px;
+  z-index: 2;
+  right: 0;
+  top: 15px;
   background: var(--orange);
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  padding: 12px 17px;
+  font: 600 16px 'Fredoka', sans-serif;
+  transform: rotate(7deg);
+  box-shadow: 3px 3px 0 var(--ink);
 }
 
-.dpad {
-  position: absolute;
-  bottom: 18px;
-  left: 20px;
-  color: var(--purple);
-  font-size: 45px;
-  font-weight: bold;
+/* MOVING STRIP */
+
+.marquee {
+  background: var(--navy);
+  color: white;
+  overflow: hidden;
+  border-bottom: 3px solid var(--ink);
 }
 
-.controls {
-  position: absolute;
-  bottom: 27px;
-  right: 20px;
+.marquee-inner {
+  width: max-content;
+  display: flex;
+  gap: 35px;
+  padding: 17px 0;
+  animation: scroll 30s linear infinite;
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.marquee b { color: var(--orange); }
+
+@keyframes scroll {
+  to { transform: translateX(-50%); }
+}
+
+/* SECTION HEADINGS */
+
+.intro {
+  padding: 90px 0 35px;
+  text-align: center;
+}
+
+.kicker {
+  color: #07878b;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.intro h2 {
+  font: 700 clamp(43px, 5vw, 65px)/1 'Fredoka', sans-serif;
+  margin: 15px 0;
   color: var(--navy);
-  font-size: 20px;
 }
 
-.plus {
-  position: absolute;
-  top: 25px;
-  right: 35px;
-  color: var(--orange);
-  font-size: 65px;
-  font-weight: bold;
+.intro p {
+  max-width: 570px;
+  margin: auto;
+  color: var(--muted);
+  font-weight: 700;
+  line-height: 1.7;
 }
+
+/* GAME CARDS */
 
 .games {
-  background: #f0f3f6;
-  padding: 85px 25px;
+  padding: 30px 0 100px;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
+.game-card {
+  display: grid;
+  grid-template-columns: .85fr 1.15fr;
+  align-items: center;
+  gap: 35px;
+  padding: 35px;
+  margin-bottom: 30px;
+  border: 2px solid var(--ink);
+  border-radius: 18px;
+  box-shadow: 7px 7px 0 var(--ink);
 }
 
-.section-heading {
+.donny { background: #e7fbf8; }
+.moji { background: #fff0db; }
+.tzu { background: #eee8dc; }
+
+.game-tag {
+  display: inline-block;
+  background: white;
+  border: 1.5px solid var(--ink);
+  border-radius: 7px;
+  padding: 7px 10px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.game-copy h3 {
+  font: 700 clamp(38px, 4vw, 55px)/1 'Fredoka', sans-serif;
+  margin: 18px 0 12px;
+  color: var(--navy);
+}
+
+.game-copy p {
+  color: #526075;
+  font-weight: 700;
+  line-height: 1.8;
+  font-size: 15px;
+  max-width: 430px;
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 20px 0 25px;
+}
+
+.features span {
+  background: white;
+  border: 1.5px solid var(--ink);
+  border-radius: 30px;
+  padding: 7px 11px;
+  font-size: 11px;
+  font-weight: 900;
+}
+
+.store-link {
+  display: inline-block;
+  background: var(--navy);
+  color: white;
+  padding: 13px 17px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 900;
+  border: 2px solid var(--navy);
+  box-shadow: 3px 3px 0 white;
+}
+
+.store-link:hover {
+  background: #244565;
+}
+
+/* APP STORE SCREENSHOTS */
+
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 13px;
+}
+
+.shot {
+  width: 31%;
+  max-width: 185px;
+  padding: 6px;
+  background: #101d2d;
+  border: 2px solid #101d2d;
+  border-radius: 19px;
+  box-shadow: 0 8px 15px #10233b22;
+  transition: .25s;
+}
+
+.shot:nth-child(1) { transform: rotate(-3deg); }
+.shot:nth-child(2) { transform: translateY(-15px); }
+.shot:nth-child(3) { transform: rotate(3deg); }
+
+.shot:hover {
+  transform: translateY(-12px) scale(1.04);
+  z-index: 2;
+}
+
+.shot img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 436 / 950;
+  object-fit: cover;
+  border-radius: 13px;
+  background: white;
+}
+
+/* FUTURE GAMES */
+
+.more {
+  background: var(--orange);
+  border-block: 3px solid var(--ink);
+  padding: 75px 0;
+  text-align: center;
+}
+
+.more h2 {
+  font: 700 clamp(38px, 5vw, 57px)/1 'Fredoka', sans-serif;
+  color: var(--navy);
+  margin: 0 0 15px;
+}
+
+.more p {
+  max-width: 540px;
+  margin: 0 auto 25px;
+  font-size: 16px;
+  line-height: 1.7;
+  font-weight: 800;
+}
+
+/* FOOTER */
+
+footer {
+  background: var(--navy);
+  color: white;
+  padding: 32px 0;
+}
+
+.footer {
   display: flex;
   justify-content: space-between;
-  align-items: end;
-  margin-bottom: 35px;
-}
-
-h2 {
-  font-size: 43px;
-  letter-spacing: -2px;
-  margin: 10px 0;
-}
-
-.purple { color: var(--purple); }
-
-.game-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
   gap: 20px;
 }
 
-.game {
-  background: white;
-  border: 1px solid #e3e7ed;
-  border-radius: 15px;
-  overflow: hidden;
-  transition: transform .2s;
+.footer .logo { color: white; }
+
+.footer p {
+  font-size: 11px;
+  color: #a6b5c8;
 }
 
-.game:hover { transform: translateY(-6px); }
-
-.game-art {
-  height: 190px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 65px;
-  font-weight: bold;
+.footer a:last-child {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--teal);
 }
 
-.donny { background: var(--teal); color: var(--navy); }
-.moji { background: #ff9b30; color: white; }
-.dontzu { background: var(--navy); color: #f5d69c; }
+/* MOBILE */
 
-.game-content { padding: 23px; }
-
-.game-content small {
-  color: #8993a2;
-  font-size: 10px;
-  letter-spacing: 2px;
-  font-weight: bold;
-}
-
-.game-content h3 {
-  font-size: 23px;
-  margin: 12px 0;
-}
-
-.game-content p {
-  color: #667085;
-  font-size: 14px;
-  line-height: 1.7;
-  min-height: 95px;
-}
-
-.game-link {
-  color: #078c9a;
-  font-weight: bold;
-  font-size: 13px;
-}
-
-.about {
-  max-width: 1100px;
-  margin: auto;
-  padding: 90px 25px;
-  display: flex;
-  align-items: center;
-  gap: 45px;
-}
-
-.about-icon {
-  width: 150px;
-  height: 150px;
-  flex-shrink: 0;
-  background: #dff7f5;
-  border: 8px solid var(--navy);
-  border-radius: 35px;
-  display: grid;
-  place-items: center;
-  font-size: 75px;
-}
-
-.about p {
-  max-width: 600px;
-  color: #667085;
-  line-height: 1.8;
-}
-
-footer {
-  border-top: 1px solid #e5e7eb;
-  padding: 30px 25px;
-  text-align: center;
-  color: #8993a2;
-  font-size: 13px;
-}
-
-@media(max-width: 750px) {
-  header { padding: 20px; }
-  nav { gap: 12px; }
-  nav a:first-child { display: none; }
-  .hero {
+@media(max-width: 800px) {
+  .hero-inner {
     grid-template-columns: 1fr;
     text-align: center;
-    padding: 60px 22px;
   }
+
   .hero p { margin: auto; }
-  .hero-art { min-height: 300px; margin-top: 20px; }
-  .section-heading { display: block; }
-  .game-grid { grid-template-columns: 1fr; }
-  .about { flex-direction: column; text-align: center; }
-  h2 { font-size: 35px; }
+
+  .actions { justify-content: center; }
+
+  .hero-art img { max-width: 360px; }
+
+  .game-card {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .game-copy { text-align: center; }
+
+  .game-copy p { margin: auto; }
+
+  .features { justify-content: center; }
+
+  .gallery { padding: 15px 0; }
+}
+
+@media(max-width: 550px) {
+  .wrap { width: calc(100% - 34px); }
+
+  header { height: 70px; }
+
+  .logo { font-size: 25px; }
+
+  .navlinks { gap: 12px; font-size: 12px; }
+
+  .navlinks a:first-child,
+  .navlinks a:nth-child(2) { display: none; }
+
+  .nav-button { padding: 10px; }
+
+  .hero h1 { font-size: 65px; }
+
+  .hero p { font-size: 16px; }
+
+  .hero-art img { max-width: 310px; }
+
+  .game-card {
+    padding: 22px 15px;
+    gap: 18px;
+    box-shadow: 5px 5px 0 var(--ink);
+  }
+
+  .game-copy h3 { font-size: 39px; }
+
+  .gallery { gap: 8px; }
+
+  .shot { padding: 4px; border-radius: 13px; }
+
+  .footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 </style>
 </head>
@@ -338,154 +510,238 @@ footer {
 <body>
 
 <header>
-  <a href="#" class="logo">
-    <span>Matt</span><span>Made</span><span>Apps</span>
-  </a>
-
-  <nav>
-    <a href="#games">Our Apps</a>
-    <a href="#about">About</a>
-    <a class="button" href="https://apps.apple.com/us/developer/matthew-james-shaw/id6804407072">
-      App Store ↗
-    </a>
-  </nav>
+  <div class="wrap nav">
+    <a class="logo" href="#">matt<span>made</span>apps.</a>
+    <nav class="navlinks">
+      <a href="#games">Our games</a>
+      <a href="#about">About</a>
+      <a class="nav-button" href="https://apps.apple.com/us/developer/matthew-james-shaw/id6804407072" target="_blank">Visit the App Store ↗</a>
+    </nav>
+  </div>
 </header>
 
 <main>
 
 <section class="hero">
-  <div>
-    <div class="eyebrow">INDEPENDENT APP DEVELOPER</div>
+  <div class="wrap hero-inner">
 
-    <h1>
-      We make<br>
-      <span class="gradient">iOS games.</span>
-    </h1>
+    <div>
+      <div class="sticker">INDEPENDENT iOS GAME MAKERS</div>
+
+      <h1>Games with<br><span>personality.</span></h1>
+
+      <p>
+        We make iPhone games that are a little bit different.
+        Pixel pets, emoji chaos and very questionable wisdom.
+        Have a look around.
+      </p>
+
+      <div class="actions">
+        <a class="button button-dark" href="#games">Come and play ↓</a>
+        <a class="button button-light" href="https://apps.apple.com/us/developer/matthew-james-shaw/id6804407072" target="_blank">Find us on the App Store ↗</a>
+      </div>
+    </div>
+
+    <div class="hero-art">
+      <div class="hero-bubble">HEY! COME PLAY!</div>
+      <img
+        src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ab/43/23/ab432304-9b67-c699-25e2-b6cf135a30d1/01-cosmic-ego.png/950x950bb.jpg"
+        alt="DonnyGotchi game artwork">
+    </div>
+
+  </div>
+</section>
+
+<div class="marquee">
+  <div class="marquee-inner">
+    <span>GOOD GAMES, GOOD FUN</span><b>✳</b>
+    <span>MADE FOR IPHONE</span><b>✳</b>
+    <span>PIXELS, PUZZLES & PERSONALITY</span><b>✳</b>
+    <span>GOOD GAMES, GOOD FUN</span><b>✳</b>
+    <span>MADE FOR IPHONE</span><b>✳</b>
+    <span>PIXELS, PUZZLES & PERSONALITY</span><b>✳</b>
+  </div>
+</div>
+
+<section class="intro" id="games">
+  <div class="wrap">
+    <div class="kicker">Our games</div>
+    <h2>Pick your kind of fun.</h2>
+    <p>
+      Here's what we've been making lately.
+      Each game has its own little world, its own sense of humour
+      and a place in your pocket.
+    </p>
+  </div>
+</section>
+
+<section class="games">
+<div class="wrap">
+
+<!-- DONNYGOTCHI -->
+
+<article class="game-card donny">
+
+  <div class="game-copy">
+    <span class="game-tag">01 / VIRTUAL PET</span>
+    <h3>DonnyGotchi</h3>
 
     <p>
-      Welcome to MattMadeApps. We create original,
-      playful iPhone games and apps designed to
-      bring a little more fun to your day.
+      A tiny pet with a truly enormous ego.
+      Feed him, dress him up, play arcade mini-games
+      and give Donny the attention he is absolutely
+      convinced he deserves.
     </p>
 
-    <a href="#games" class="button primary">
-      Explore our apps →
+    <div class="features">
+      <span>Pixel pet care</span>
+      <span>Mini-games</span>
+      <span>Outfits & home</span>
+    </div>
+
+    <a class="store-link"
+       href="https://apps.apple.com/us/app/donnygotchi/id6804407070"
+       target="_blank">
+       Meet Donny on the App Store ↗
     </a>
   </div>
 
-  <div class="hero-art">
-    <div class="plus">+</div>
-    <div class="console">
-      <div class="screen">
-        <div class="eye"></div>
-        <div class="eye"></div>
-      </div>
-      <div class="mouth"></div>
-      <div class="dpad">+</div>
-      <div class="controls">▪ ▪</div>
-    </div>
+  <div class="gallery">
+    <a class="shot" href="https://apps.apple.com/us/app/donnygotchi/id6804407070" target="_blank">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/ab/43/23/ab432304-9b67-c699-25e2-b6cf135a30d1/01-cosmic-ego.png/950x950bb.jpg" alt="DonnyGotchi screenshot 1">
+    </a>
+    <a class="shot" href="https://apps.apple.com/us/app/donnygotchi/id6804407070" target="_blank">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/fb/ef/97/fbef97d4-dc3f-f05d-795d-3dbcbd739904/02-care.png/950x950bb.jpg" alt="DonnyGotchi screenshot 2">
+    </a>
+    <a class="shot" href="https://apps.apple.com/us/app/donnygotchi/id6804407070" target="_blank">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/d8/69/68/d8696831-cc37-d6c3-54eb-a32afe758e17/03-arcade.png/950x950bb.jpg" alt="DonnyGotchi screenshot 3">
+    </a>
   </div>
-</section>
 
-<section class="games" id="games">
-  <div class="container">
+</article>
 
-    <div class="section-heading">
-      <div>
-        <div class="eyebrow">WHAT WE MAKE</div>
-        <h2>Our <span class="purple">apps.</span></h2>
-      </div>
-      <p>Three apps. Plenty of personality.</p>
-    </div>
+<!-- MOJIPAIR -->
 
-    <div class="game-grid">
+<article class="game-card moji">
 
-      <article class="game">
-        <div class="game-art donny">D</div>
-        <div class="game-content">
-          <small>VIRTUAL PET</small>
-          <h3>DonnyGotchi</h3>
-          <p>
-            A tiny pixel pet with an ego the size
-            of the universe. Feed Donny, play games
-            and keep him entertained.
-          </p>
-          <a class="game-link"
-             href="https://apps.apple.com/us/app/donnygotchi/id6804407070"
-             target="_blank" rel="noopener">
-            View on App Store ↗
-          </a>
-        </div>
-      </article>
+  <div class="game-copy">
+    <span class="game-tag">02 / PUZZLE GAME</span>
+    <h3>MojiPair</h3>
 
-      <article class="game">
-        <div class="game-art moji">M</div>
-        <div class="game-content">
-          <small>PUZZLE GAME</small>
-          <h3>MojiPair</h3>
-          <p>
-            The Emoji Match Game. Find matching
-            pairs, beat the clock and collect
-            colourful stickers.
-          </p>
-          <a class="game-link"
-             href="https://apps.apple.com/us/app/mojipair-the-emoji-match-game/id6805233011"
-             target="_blank" rel="noopener">
-            View on App Store ↗
-          </a>
-        </div>
-      </article>
-
-      <article class="game">
-        <div class="game-art dontzu">DT</div>
-        <div class="game-content">
-          <small>QUOTE APP</small>
-          <h3>The Art of Don Tzu</h3>
-          <p>
-            Bold wisdom, one swipe away.
-            Discover quotes, save favourites
-            and share them with friends.
-          </p>
-          <a class="game-link"
-             href="https://apps.apple.com/us/app/the-art-of-don-tzu/id6805178995"
-             target="_blank" rel="noopener">
-            View on App Store ↗
-          </a>
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="about-icon">+</div>
-  <div>
-    <div class="eyebrow">ABOUT MATTMADEAPPS</div>
-    <h2>Made for the love of <span class="purple">play.</span></h2>
     <p>
-      MattMadeApps is an independent app studio
-      creating original iOS experiences.
-      From quirky virtual pets to satisfying
-      puzzles, we make apps with personality.
+      Find matching emojis, drag them together and watch
+      them pop. Race the clock in Classic, take it easy
+      in Zen and collect surprise stickers as you play.
     </p>
+
+    <div class="features">
+      <span>Emoji matching</span>
+      <span>Zen mode</span>
+      <span>Sticker book</span>
+    </div>
+
+    <a class="store-link"
+       href="https://apps.apple.com/us/app/mojipair-the-emoji-match-game/id6805233011"
+       target="_blank">
+       Play MojiPair on the App Store ↗
+    </a>
+  </div>
+
+  <div class="gallery">
+    <a class="shot" href="https://apps.apple.com/us/app/mojipair-the-emoji-match-game/id6805233011" target="_blank">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/43/c4/63/43c46352-46df-7237-4ffd-cb5e4d6de427/screenshot-01.png/950x950bb.jpg" alt="MojiPair screenshot 1">
+    </a>
+    <a class="shot" href="https://apps.apple.com/us/app/mojipair-the-emoji-match-game/id6805233011" target="_blank">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/57/84/a4/5784a46d-be78-d112-0f44-76055495c160/screenshot-02.png/950x950bb.jpg" alt="MojiPair screenshot 2">
+    </a>
+    <a class="shot" href="https://apps.apple.com/us/app/mojipair-the-emoji-match-game/id6805233011" target="_blank">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/9a/fa/ab/9afaab8a-b9f9-4456-d318-1db43d9849af/screenshot-03.png/950x950bb.jpg" alt="MojiPair screenshot 3">
+    </a>
+  </div>
+
+</article>
+
+<!-- THE ART OF DON TZU -->
+
+<article class="game-card tzu">
+
+  <div class="game-copy">
+    <span class="game-tag">03 / COMEDY & QUOTES</span>
+    <h3>The Art of Don Tzu</h3>
+
+    <p>
+      Meet a fictional master of strategy with absolutely
+      no shortage of confidence. Swipe through made-up
+      wisdom, save your favourites and share beautifully
+      framed quote cards.
+    </p>
+
+    <div class="features">
+      <span>Satirical quotes</span>
+      <span>Quote cards</span>
+      <span>Save & share</span>
+    </div>
+
+    <a class="store-link"
+       href="https://apps.apple.com/us/app/the-art-of-don-tzu/id6805178995"
+       target="_blank">
+       Consult the master ↗
+    </a>
+  </div>
+
+  <div class="gallery">
+    <a class="shot" href="https://apps.apple.com/us/app/the-art-of-don-tzu/id6805178995" target="_blank">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/67/cf/77/67cf77ea-e3cd-a27e-7be7-3cb17f42883c/store-01-welcome.png/950x950bb.jpg" alt="The Art of Don Tzu screenshot 1">
+    </a>
+    <a class="shot" href="https://apps.apple.com/us/app/the-art-of-don-tzu/id6805178995" target="_blank">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/ae/35/53/ae355309-ede9-2891-647f-9465873a3e55/store-02-wisdom.png/950x950bb.jpg" alt="The Art of Don Tzu screenshot 2">
+    </a>
+    <a class="shot" href="https://apps.apple.com/us/app/the-art-of-don-tzu/id6805178995" target="_blank">
+      <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource221/v4/df/ec/7f/dfec7ff5-b596-f1ec-a960-64a98be3bcd0/store-alt-dispatch-01-door.png/950x950bb.jpg" alt="The Art of Don Tzu screenshot 3">
+    </a>
+  </div>
+
+</article>
+
+</div>
+</section>
+
+<!-- MORE GAMES -->
+
+<section class="more" id="about">
+  <div class="wrap">
+    <h2>We're just getting started.</h2>
+
+    <p>
+      Three games out in the world, plenty more ideas brewing.
+      We're always tinkering with something new.
+      Keep an eye out for what comes next.
+    </p>
+
+    <a class="button button-light"
+       href="https://apps.apple.com/us/developer/matthew-james-shaw/id6804407072"
+       target="_blank">
+       Find MattMadeApps on the App Store ↗
+    </a>
   </div>
 </section>
 
 </main>
 
 <footer>
-  <strong>MattMadeApps</strong>
-  <p>© <span id="year"></span> MattMadeApps. All rights reserved.</p>
-  <a href="https://apps.apple.com/us/developer/matthew-james-shaw/id6804407072">
-    Find us on the App Store ↗
-  </a>
+  <div class="wrap footer">
+    <a class="logo" href="#">matt<span>made</span>apps.</a>
+
+    <p>© <span id="year"></span> MattMadeApps. Made for the love of play.</p>
+
+    <a href="https://apps.apple.com/us/developer/matthew-james-shaw/id6804407072" target="_blank">
+      See all our apps ↗
+    </a>
+  </div>
 </footer>
 
 <script>
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 </script>
 
 </body>
